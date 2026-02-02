@@ -25,5 +25,5 @@ jobs:
             
             - name: Run Tests
               run: |
-                    pytest ci-cd-learning-lab/tests/sample_test.py
+                    pytest tests/
             
