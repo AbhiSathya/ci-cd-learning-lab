@@ -32,3 +32,6 @@ jobs:
               run: |
                     pytest tests/
             
+            - name: Docker Build
+              run: |
+                    docker build -t ci-cd-learning-lab:latest .

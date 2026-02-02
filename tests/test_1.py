@@ -1,4 +1,4 @@
 from app.main import add
 
 def test_add():
-    assert add(2,4) == 5
+    assert add(2,4) == 6
