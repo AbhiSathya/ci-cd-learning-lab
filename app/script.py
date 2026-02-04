@@ -47,8 +47,7 @@ class Bin_Generator_Config:
                 latitude, longitude = self.generate_unique_coordinates(base_lat, base_long)
                 latitude = round(base_lat + (w * 0.005) + (b * 0.0005), 6)
                 longitude = round(base_long + (w * 0.005) + (b * 0.0005), 6)
-                install_date = (datetime(2025, 1, 10) +
-                                timedelta(days=random.randint(0, 30))).strftime("%Y-%m-%d")
+                install_date = (datetime(2025, 1, 10) + timedelta(days=random.randint(0, 30))).strftime("%Y-%m-%d")
                 status = random.choices(self.statuses, weights=self.status_weights, k=1)[0]
 
                 ward["bins"].append({
@@ -58,9 +57,7 @@ class Bin_Generator_Config:
                     "installed_at": install_date,
                     "status": status
                 })
-
             wards.append(ward)
-
         config = {"wards": wards}
 
         # Write to YAML file
@@ -71,15 +68,9 @@ class Bin_Generator_Config:
 
 
 if __name__ == "__main__":
-    # Example usage
+
     num_wards = int(input("Enter number of wards: "))
     bins_per_ward = int(input("Enter number of bins per ward: "))
 
-    # You can override weights here if needed
-    obj = Bin_Generator_Config(
-        num_wards,
-        bins_per_ward,
-        area_type_weights=[0.7, 0.2, 0.1],   # residential, commercial, industrial
-        status_weights=[0.9, 0.1]            # active, maintenance
-    )
+    obj = Bin_Generator_Config(num_wards, bins_per_ward, area_type_weights=[0.7, 0.2, 0.1], status_weights=[0.9, 0.1])
     obj.generate_yaml_config()

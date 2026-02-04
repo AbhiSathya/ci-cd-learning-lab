@@ -7,12 +7,7 @@ from app.script import Bin_Generator_Config
 @pytest.fixture
 def config_file(tmp_path):
     output_file = tmp_path / "test_config.yaml"
-    obj = Bin_Generator_Config(
-        num_wards=5,
-        bins_per_ward=4,
-        area_type_weights=[0.7, 0.2, 0.1],
-        status_weights=[0.9, 0.1]
-    )
+    obj = Bin_Generator_Config(num_wards=5, bins_per_ward=4, area_type_weights=[0.7, 0.2, 0.1], status_weights=[0.9, 0.1])
     obj.output_file = str(output_file)
     obj.generate_yaml_config()
     return output_file
