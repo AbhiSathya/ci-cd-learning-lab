@@ -3,8 +3,6 @@ on:
     pull_request:
         branches:
             - main
-            - develop
-            - release
 
 jobs:
     test:
@@ -38,4 +36,4 @@ jobs:
             
             - name: Docker Run
               run: |
-                    docker run --rm ci-cd-learning-lab:latest || echo "Test Failed"
+                    docker run --rm ci-cd-learning-lab:latest
