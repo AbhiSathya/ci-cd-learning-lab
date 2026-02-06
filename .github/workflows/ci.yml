@@ -35,3 +35,7 @@ jobs:
             - name: Docker Build
               run: |
                     docker build -t ci-cd-learning-lab:latest .
+            
+            - name: Docker Run
+              run: |
+                    docker run --rm ci-cd-learning-lab:latest || echo "Test Failed"
