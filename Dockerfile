@@ -9,4 +9,4 @@ COPY app app
 COPY pytest.ini .
 
 
-CMD ["python", "-c", "from app.main import add; print(add(2,3))"]
+CMD ["pytest", "tests/"]
